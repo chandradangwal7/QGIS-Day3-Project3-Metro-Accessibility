@@ -1,38 +1,75 @@
-# QGIS Day 3 – Project 3: Bangalore Metro Accessibility (1 km Buffer)
+# QGIS Day 3 – Metro Accessibility Project (Mini Project 3)
 
-This mini-project explores how many people live within **1 km of Bangalore Metro stations** using QGIS basic geoprocessing tools.
+## 1. Project Overview
+This project explores **metro station accessibility** in Bangalore using **QGIS**.  
+It focuses on:
+- Mapping Bangalore metro and railway stations.
+- Creating **1 km buffer zones** around metro stations.
+- Analyzing population distribution within these buffers.
+- Visualizing accessibility results and exporting outputs.
 
----
-
-## 🔍 Project Overview
-- **Objective:** Estimate metro accessibility based on a simple 1 km radius around stations.
-- **Data Used:**  
-  - Bangalore city boundary and metro stations (from OpenStreetMap via QuickOSM)  
-  - WorldPop 2020 constrained population raster (100m resolution)
-- **Tools:** QGIS (buffer, reprojection, zonal statistics), OpenStreetMap (QuickOSM plugin)
-- **CRS Used:** EPSG:32643 (UTM Zone 43N) for accurate distance operations; reprojected back to EPSG:4326 for sharing.
+This is my **third mini project on Day 3** of QGIS learning.
 
 ---
 
-## 🛠 Workflow Summary
-1. **Downloaded** Bangalore boundary and metro station points using QuickOSM.
-2. **Filtered** metro stations by operator: *Bangalore Metro Rail Corporation Limited*.
-3. **Reprojected** layers to EPSG:32643 (meters-based CRS).
-4. **Created buffer** of 1 km around metro stations and dissolved boundaries.
-5. **Used Zonal Statistics** to calculate population within the buffer using WorldPop raster.
-6. **Exported** final map and results; reprojected back to EPSG:4326 for sharing.
+## 2. Project Structure
+
+├── Bangalore_metro_Access_Analysis_Project.qgz # QGIS project file
+├── Bangalore Accessibility from metro.png # Map visualization (used in README)
+├── Bangalore Metro Station accessibility Near 1 km Radius.pdf # Exported report
+├── bangalore_pop_city_Total_population.gpkg # Population data
+├── bangalore_ppp_2020_constrained.tif # Raster population layer
+├── Bangalore_Railway_stations_by_osm_Plugin.gpkg # Railway stations layer
+├── metro_station_buffer_reprojected.gpkg # Metro buffer (1 km)
+├── Metro_station_buffer_pop_zonal_stat.gpkg # Zonal population statistics
+├── pubs_bangalore_reprojected.gpkg # Pubs (additional POI)
+├── Pubs_bangalore_reprojected_buffer.gpkg # Pubs buffer (optional)
+├── railway_station_Bangalore.gpkg # Railway stations (alt layer)
+
+
 
 ---
 
-## 🗺 Final Map Output
-![Bangalore Metro Accessibility – 1 km Buffer](maps/outputs/bangalore_metro_accessibility_1km.png)
+## 3. Data Sources
+- **Metro & Railway Stations:** Extracted using OSM plugin in QGIS.
+- **Population Data:** WorldPop (2020), reprojected for analysis.
+- **Other Layers:** Public amenities and buffer layers created during analysis.
 
 ---
 
-## 📊 Key Insights & Notes
-- The buffer currently uses **straight-line distance**, so it may include water bodies or highways.
-- **Future plan:** Use **OpenRouteService (ORS)** to calculate walkable network buffers for more realistic results.
+## 4. Methodology
+1. Imported metro, railway, and population layers into QGIS.
+2. Reprojected all layers to a common CRS (meters).
+3. Created **1 km buffers** around each metro station.
+4. Performed **zonal statistics** to calculate population inside each buffer.
+5. Styled the map with appropriate symbology and labels.
+6. Exported outputs in PNG and PDF formats.
 
 ---
 
-## 📁 Repository Structure
+## 5. Output Preview
+The map below shows metro accessibility in Bangalore with 1 km buffer zones:
+
+![Bangalore Metro Accessibility](Bangalore%20Accessibility%20from%20metro%20.png)
+
+---
+
+## 6. Improvements & Next Steps
+- Incorporate **OpenRouteService (ORS)** to measure exact **walkable 1 km distance** accounting for bridges and highways.
+- Automate analysis workflows in **Advanced QGIS** (next learning step).
+- Explore advanced visualization techniques for better decision support.
+
+---
+
+## 7. Learning Notes
+- Completed **Introduction to QGIS (Full Course)** by Spatial Thoughts.
+- Next: **Advanced QGIS – Automating GIS Workflows & Visualizations** by Ujaval Gandhi.
+
+---
+
+## 8. License / Credits
+- Data: OSM, WorldPop 2020  
+- Created by: *Chandra Dangwal* (Student Project)
+
+
+
