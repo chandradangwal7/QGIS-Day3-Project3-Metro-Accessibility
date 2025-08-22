@@ -1,0 +1,38 @@
+# QGIS Day 3 – Project 3: Bangalore Metro Accessibility (1 km Buffer)
+
+This mini-project explores how many people live within **1 km of Bangalore Metro stations** using QGIS basic geoprocessing tools.
+
+---
+
+## 🔍 Project Overview
+- **Objective:** Estimate metro accessibility based on a simple 1 km radius around stations.
+- **Data Used:**  
+  - Bangalore city boundary and metro stations (from OpenStreetMap via QuickOSM)  
+  - WorldPop 2020 constrained population raster (100m resolution)
+- **Tools:** QGIS (buffer, reprojection, zonal statistics), OpenStreetMap (QuickOSM plugin)
+- **CRS Used:** EPSG:32643 (UTM Zone 43N) for accurate distance operations; reprojected back to EPSG:4326 for sharing.
+
+---
+
+## 🛠 Workflow Summary
+1. **Downloaded** Bangalore boundary and metro station points using QuickOSM.
+2. **Filtered** metro stations by operator: *Bangalore Metro Rail Corporation Limited*.
+3. **Reprojected** layers to EPSG:32643 (meters-based CRS).
+4. **Created buffer** of 1 km around metro stations and dissolved boundaries.
+5. **Used Zonal Statistics** to calculate population within the buffer using WorldPop raster.
+6. **Exported** final map and results; reprojected back to EPSG:4326 for sharing.
+
+---
+
+## 🗺 Final Map Output
+![Bangalore Metro Accessibility – 1 km Buffer](maps/outputs/bangalore_metro_accessibility_1km.png)
+
+---
+
+## 📊 Key Insights & Notes
+- The buffer currently uses **straight-line distance**, so it may include water bodies or highways.
+- **Future plan:** Use **OpenRouteService (ORS)** to calculate walkable network buffers for more realistic results.
+
+---
+
+## 📁 Repository Structure
